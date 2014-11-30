@@ -15,6 +15,12 @@ public class TreeNode {
 	}
 
 	public static TreeNode INST = new TreeNode();
+	
+	
+	static String testTree1 = "{1, 2, 3, 4, #, 5, 6, #, #, 7, #, #, #, #, #}";
+	static String testTree2 = "{1, #, 2, 3}";
+	static String testTree3 = "{5, 4, 8, 11, #, 13, 4, 7, 2, #, #, 5, 1}";
+	static String[] testTrees = {testTree1, testTree2, testTree3};
 
 	public TreeNode generateTreeFromString(String str) {
 		str = str.replaceAll("\\s+","");
@@ -35,9 +41,9 @@ public class TreeNode {
 				nodes.add(node);
 			}
 		}
-//		for (TreeNode node : nodes) {
-//			System.out.println(node == null ? null : node.val);
-//		}
+		//		for (TreeNode node : nodes) {
+		//			System.out.println(node == null ? null : node.val);
+		//		}
 		TreeNode root = nodes.get(0);
 		TreeNode p;
 		int leftIndex = 1;
@@ -97,7 +103,7 @@ public class TreeNode {
 			}
 			result.add(row);
 		}
-		
+
 		//print
 		for (List<String> row : result) {
 			for (String node : row) {
@@ -105,5 +111,11 @@ public class TreeNode {
 			}
 			System.out.println();
 		}
+		System.out.println("******************************************");
+	}
+
+	public TreeNode generateTestTree(int num) {
+		String str = testTrees[num];
+		return generateTreeFromString(str);
 	}
 }
