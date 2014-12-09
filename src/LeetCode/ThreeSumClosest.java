@@ -12,7 +12,7 @@ public class ThreeSumClosest {
 
     public int threeSumClosest(int[] num, int target) {
         Arrays.sort(num);
-        for (int i = 0; i <= num.length - 3; i++) {
+        for (int i = 0; i < num.length - 2; i++) {
             if (i != 0 && num[i] == num[i - 1]) {
                 continue;
             }
@@ -27,7 +27,7 @@ public class ThreeSumClosest {
             if (closest == null || Math.abs(curSum - target) < Math.abs(closest - target)) {
                 closest = curSum;
             }
-            if (curSum <= target) {
+            if (curSum < target) {
                 left++;
                 while (left < right && num[left] == num[left - 1]) {
                     left++;
@@ -37,6 +37,9 @@ public class ThreeSumClosest {
                 while (left < right && num[right] == num[right + 1]) {
                     right--;
                 }
+            } else {
+                closest = target;
+                return;
             }
         }
     }
