@@ -39,7 +39,7 @@ public class FourSum {
                 while (left < right && num[right] == num[right + 1]) {
                     right--;
                 }
-            } else if (curSum == target) {
+            } else {
                 List<Integer> result = new ArrayList<Integer>(Arrays.asList(num[i], num[j], num[left], num[right]));
                 results.add(result);
                 left++;
