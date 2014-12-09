@@ -28,8 +28,14 @@ public class ThreeSum {
             int curSum = num[left] + num[right];
             if (curSum < target) {
                 left++;
+                while (left < right && num[left] == num[left - 1]) {
+                    left++;
+                }
             } else if (curSum > target) {
                 right--;
+                while (left < right && num[right] == num[right + 1]) {
+                    right--;
+                }
             } else {
                 List<Integer> result = new ArrayList<Integer>(Arrays.asList(num[i], num[left], num[right]));
                 results.add(result);
